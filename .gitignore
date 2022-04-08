@@ -169,6 +169,7 @@ node_modules
 psd
 thumb
 sketch
+**/build
 
 ### VisualStudioCode ###
 .vscode/*

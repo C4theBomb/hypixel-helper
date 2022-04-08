@@ -1,0 +1,44 @@
+{
+    "Autopet Rules 2-Pack": {
+        "cost": 21000
+    },
+    "Bits Talisman": {
+        "cost": 15000
+    },
+    "Block Zapper": {
+        "cost": 5000
+    },
+    "Builder's Wand": {
+        "cost": 12000
+    },
+    "Colossal Experience Bottle": {
+        "cost": 1200
+    },
+    "God Potion": {
+        "cost": 1500
+    },
+    "Heat Core": {
+        "cost": 3000
+    },
+    "Hologram": {
+        "cost": 2000
+    },
+    "Hyper Catalyst Upgrade": {
+        "cost": 300
+    },
+    "Jumbo Backpack Upgrade": {
+        "cost": 4000
+    },
+    "Kat Flower": {
+        "cost": 500
+    },
+    "Kismet Feather": {
+        "cost": 1350
+    },
+    "Minion Storage X-pender": {
+        "cost": 1500
+    },
+    "Ultimate Carrot Candy Upgrade": {
+        "cost": 8000
+    }
+}

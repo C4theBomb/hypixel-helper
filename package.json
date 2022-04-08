@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "npm start -ws"
+        "start": "npm start -ws",
+        "build": "npm run build -ws"
     },
     "author": "",
     "license": "ISC",
@@ -12,7 +13,6 @@
         "client"
     ],
     "dependencies": {
-        "create-react-app": "^5.0.0",
-        "react-router-dom": "^6.3.0"
+        "create-react-app": "^5.0.0"
     }
 }
