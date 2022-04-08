@@ -14,7 +14,7 @@ jobs:
             - name: Write .env to build
               env:
                   DOTENV: '${{ secrets.DOTENV }}'
-              run: echo "$DOTENV" >> .env
+              run: echo "$DOTENV" >> ./client/.env
             - name: Use Node.js 16.x
               uses: actions/setup-node@v2
               with:
@@ -28,6 +28,6 @@ jobs:
                   repo_token: ${{ secrets.GITHUB_TOKEN }}
                   tag: ${{ github.ref }}
                   file: ./build.tar.gz
-                  asset_name: $tag-dist.tar.gz
+                  asset_name: $tag-build.tar.gz
                   asset_content_type: application/gzip
                   overwrite: true
