@@ -5,9 +5,11 @@
     "main": "index.js",
     "scripts": {
         "start": "npm start -ws",
-        "build": "npm run build -ws"
+        "build": "npm run build -ws",
+        "prepackage": "npm ci && npm run build",
+        "package": "tar -czf ./build.tar.gz ./build"
     },
-    "author": "",
+    "author": "C4 Patino",
     "license": "ISC",
     "workspaces": [
         "client"
