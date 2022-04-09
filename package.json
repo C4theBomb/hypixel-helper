@@ -7,7 +7,7 @@
         "start": "npm start -ws",
         "build": "npm run build -ws",
         "prepackage": "npm ci && npm run build",
-        "package": "tar -czf ./build.tar.gz ./build"
+        "package": "tar -czf ./build.tar.gz -C build ."
     },
     "author": "C4 Patino",
     "license": "ISC",
