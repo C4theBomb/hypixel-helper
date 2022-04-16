@@ -10,30 +10,13 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-import { getItems } from '../utils/getData';
-
-function NPCUser() {
+function NPCUser({ handleSubmit, itemData }) {
     const theme = useTheme();
 
     const [search, setSearch] = useState('');
-    const [itemData, setItemData] = useState([]);
-
-    useEffect(() => handleSubmit(), []);
 
     function handleSearchChange(e) {
         setSearch(() => e.target.value);
-    }
-
-    async function handleSubmit(e) {
-        e?.preventDefault();
-
-        const items = await getItems();
-
-        const data = items
-            .filter((item) => item.name === search)
-            .map((item) => item.npc_sell_price);
-
-        setItemData(() => data[0]);
     }
 
     return (

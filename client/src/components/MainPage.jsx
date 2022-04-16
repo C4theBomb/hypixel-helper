@@ -3,7 +3,7 @@ import React from 'react';
 import { Paper, Typography, Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-import UserDisplay from './UserDisplay';
+import UserDisplay from '../controllers/UserDisplay';
 
 function MainPage({ user }) {
     const theme = useTheme();

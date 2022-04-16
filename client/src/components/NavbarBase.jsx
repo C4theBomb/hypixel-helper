@@ -19,16 +19,18 @@ import {
 } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-import axiosGet from '../utils/axiosGet';
 import PageBase from './utils/PageBase';
-import BaseLink from './utils/BaseLink';
+import BaseLink from './BaseLink';
 
-function Navbar(props) {
-    const [user, setUser] = props.user;
-    const [username, setUsername] = useState('');
+function NavbarBase({
+    user,
+    profiles,
+    handleUsernameChange,
+    handleProfileChange,
+    handleSubmit,
+}) {
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
-    const [profiles, setProfiles] = useState([]);
     const [menu, setMenus] = useState({
         anchorEl: null,
         open: '',
@@ -48,53 +50,12 @@ function Navbar(props) {
         },
     });
 
-    function handleProfileChange(e) {
-        setUser((initial) => ({ ...initial, [e.target.name]: e.target.value }));
-    }
-
-    function handleUsernameChange(e) {
-        setUsername(() => e.target.value);
-    }
-
     function handleMenuOpen(e) {
         setMenus(() => ({ anchorEl: e.target, open: e.target.name }));
     }
 
     function handleMenuClose() {
         setMenus(() => ({ anchorEl: null, open: '' }));
-    }
-
-    async function handleSubmit(e) {
-        e.preventDefault();
-
-        await axiosGet(`https://api.ashcon.app/mojang/v2/user/${username}`)
-            .then(async (res) => {
-                setUser((initial) => ({
-                    ...initial,
-                    uuid: res.data.uuid,
-                    username,
-                }));
-
-                return await axiosGet(
-                    `https://api.hypixel.net/skyblock/profiles`,
-                    {
-                        uuid: res.data.uuid,
-                        key: process.env.REACT_APP_API_KEY,
-                    }
-                );
-            })
-            .then((res) => {
-                setUser((initial) => ({ ...initial, profile: '' }));
-                setProfiles([]);
-                const data = res.data.profiles;
-                if (data) {
-                    const profiles = res.data.profiles.map((profile) => {
-                        const { profile_id, cute_name } = profile;
-                        return { profileID: profile_id, cuteName: cute_name };
-                    });
-                    setProfiles(() => profiles);
-                }
-            });
     }
 
     return (
@@ -225,4 +186,4 @@ function Navbar(props) {
     );
 }
 
-export default Navbar;
+export default NavbarBase;
